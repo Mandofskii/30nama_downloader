@@ -1,4 +1,4 @@
-*30Nama Downloader*
+**30Nama Downloader**
 ```python
 from cinema_helper import Cinema
 downloader = Cinema('USER TOKEN HERE')
@@ -24,11 +24,20 @@ for season in post.seasons:
         print("SUBTITLE DOWNLOAD LINK : %s", episode.subtitle.fa) # post.subtitle.fa/en
 ```
 
-Downloading playlists : 
+**Downloading playlists :**
 ```bash
 sudo apt install ffmpeg -y
 ffmpeg -i "PLAYLIST_URL HERE" -bsf:a aac_adtstoasc -vcodec copy -c copy -crf 50 output.mp4
 ```
+ - Downloading with python :
+   ```python
+   from subprocess import Popen
+   
+   playlist_url = "http://....."
+   output_file  = "output.mp4"
+   command = "ffmpeg -i {} -bsf:a aac_adtstoasc -vcodec copy -c copy -crf 50 {}"
+   Popen(command.format(playlist_url, output_file))
+   ```
 
 [30Nama Downloader (Telegram Bot)](https://t.me/dl30nama_bot)
 -------------------------------
